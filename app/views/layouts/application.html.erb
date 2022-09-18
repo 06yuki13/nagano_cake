@@ -11,6 +11,94 @@
   </head>
 
   <body>
+    <header>
+      <div class="container">
+         <ul class="navbar-nav ml-auto">
+
+      <% if admin_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "admin_items_path",class: "text-light nav-link" do %>
+        商品一覧
+        <% end %>
+       </li>
+
+        <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        会員一覧
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        注文履歴一覧
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "admin_genres_path",class: "text-light nav-link" do %>
+        ジャンル一覧
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        ログアウト
+        <% end %>
+     </li>
+
+     <% elsif customer_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        マイページ
+        <% end %>
+       </li>
+
+        <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        商品一覧
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        カート
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        ログアウト
+        <% end %>
+      </li>
+
+      <% else %>
+        <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        About
+        <% end %>
+       </li>
+
+        <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        商品一覧
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        新規登録
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "#",class: "text-light nav-link" do %>
+        ログイン
+        <% end %>
+      </li>
+      <% end %>
+        </ul>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
