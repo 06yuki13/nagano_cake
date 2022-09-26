@@ -4,7 +4,9 @@
 <h4>商品名 <%= @item.name %></h4>
 <h4>商品説明 <%= @item.introduction %></h4>
 <h4>ジャンル <%= @item.genre.name %></h4>
-<h4>税込価格(税抜価格) <%= @item.price %></h4>
+
+<h4>税込価格(税抜価格) <%= (@item.price * 1.1).to_i %> （<%= @item.price %>)</h4>
+
  <h4>ステータス
  <% if @item.is_active %>
  販売中
