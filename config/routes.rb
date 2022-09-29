@@ -14,11 +14,13 @@ namespace :admin do
     resources :genres,only: [:index, :edit, :create, :update]
     resources :items,only: [:index, :new, :show, :edit, :create, :update]
     resources :customers,only: [:index, :show, :edit, :update]
+    get '/'=>'homes#top'
   end
 
  namespace :public do
-    root to: "homes#top"
+    get '/'=>'homes#top'
     get 'homes/about'
+    resources :customers,only:[:show, :edit, :update, :confirm, :withdrawal]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
