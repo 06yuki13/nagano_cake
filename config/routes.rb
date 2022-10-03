@@ -17,8 +17,8 @@ namespace :admin do
     get '/'=>'homes#top'
   end
 
- namespace :public do
-    get '/'=>'homes#top'
+ scope module: :public do
+    root to: 'homes#top'
     get 'homes/about'
     resources :customers,only:[:show, :edit, :update, :confirm, :withdrawal]
   end
