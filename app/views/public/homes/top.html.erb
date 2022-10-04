@@ -1,9 +1,22 @@
-<h1>Public/Top</h1>
-
 <div style = "text-align :center">
   <p>ようこそ、ながのCAKEへ！<br>
   このサイトは、ケーキ販売のECサイトになります。<br>
   会員でない方も、商品の閲覧はできますが、<br>
   購入には会員登録が必要になります。</p>
 </div>
+
+<h1>新着商品</h1>
+
+<table>
+  <tr>
+    <% @items.each do |item| %>
+    <td>
+        <%= image_tag item.get_image(100,100) %><br>
+        商品名 <%= item.name %><br>
+        ¥<%= (item.price * 1.1).to_i %>
+    </td>
+
+    <% end %>
+  </tr>
+</table>
 
