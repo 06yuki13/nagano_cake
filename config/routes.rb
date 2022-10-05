@@ -20,8 +20,11 @@ namespace :admin do
  scope module: :public do
     root to: 'homes#top'
     get 'homes/about'
-    resources :customers,only:[:show, :edit, :update, :confirm, :withdrawal]
-    
+    get 'customers/confirm' => 'customers#confirm'
+    patch 'customers/withdrawal' => 'customer#withdrawal'
+    resources :customers,only:[:show, :edit, :update]
+    resources :addresses,only:[:index, :edit, :create, :update, :destroy]
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
