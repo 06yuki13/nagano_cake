@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'cart_items/index'
+  end
   devise_for :customers,skip:[:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -22,9 +25,11 @@ namespace :admin do
     get 'homes/about'
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/withdrawal' => 'customers#withdrawal'
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :customers,only:[:show, :edit, :update]
     resources :addresses,only:[:index, :edit, :create, :update, :destroy]
     resources :items,only:[:index, :show]
+    resources :cart_items,only:[:index, :update, :create, :destroy, :destroy_all]
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
