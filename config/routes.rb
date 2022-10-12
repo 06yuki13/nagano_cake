@@ -21,9 +21,10 @@ namespace :admin do
     root to: 'homes#top'
     get 'homes/about'
     get 'customers/confirm' => 'customers#confirm'
-    patch 'customers/withdrawal' => 'customer#withdrawal'
+    patch 'customers/withdrawal' => 'customers#withdrawal'
     resources :customers,only:[:show, :edit, :update]
     resources :addresses,only:[:index, :edit, :create, :update, :destroy]
+    resources :items,only:[:index, :show]
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
