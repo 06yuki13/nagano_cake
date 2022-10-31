@@ -3,8 +3,9 @@
    <div class="col">
 <h1>配送先登録/一覧</h1>
 
-<table class="mb-5" width="70%">
 <%= form_with model: @address, url: addresses_path do |f| %>
+
+<table class="mb-5" width="70%">
 
 <tr><th>郵便番号（ハイフンなし）</th><td><%= f.text_field :postal_code, placeholder: "0000000" %></td></tr>
 <tr><th>住所</th><td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0" %></td></tr>

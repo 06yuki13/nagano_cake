@@ -20,16 +20,18 @@ namespace :admin do
  scope module: :public do
     root to: 'homes#top'
     get 'homes/about'
+
+
+
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/withdrawal' => 'customers#withdrawal'
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
-    get 'orders/confirm' => 'orders#confirm'
-    get 'orders/complete' =>'orders#complete'
-
     resources :customers,only:[:show, :edit, :update]
     resources :addresses,only:[:index, :edit, :create, :update, :destroy]
     resources :items,only:[:index, :show]
-    resources :cart_items,only:[:index, :update, :create, :destroy, :destroy_all]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items,only:[:index, :update, :create, :destroy]
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' =>'orders#complete'
     resources :orders,only:[:new, :index, :show, :create]
 
   end

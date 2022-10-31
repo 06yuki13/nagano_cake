@@ -9,4 +9,5 @@ has_many :cart_items
  last_name + first_name
  end
 
+
 end
