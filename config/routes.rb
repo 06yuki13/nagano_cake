@@ -14,6 +14,7 @@ namespace :admin do
     resources :genres,only: [:index, :edit, :create, :update]
     resources :items,only: [:index, :new, :show, :edit, :create, :update]
     resources :customers,only: [:index, :show, :edit, :update]
+    resources :orders,only: [:show]
     get '/'=>'homes#top'
   end
 
